@@ -1,0 +1,52 @@
+[tool.poetry]
+name = "fau_colors"
+version = "0.1.0"
+description = "The official colors of the FAU as matplotlib/seaborn colormaps"
+authors = [
+    "Robert Richer <robert.richer@fau.de>",
+    "Arne Küderle <arne.kuederle@fau.de>",
+]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+matplotlib = "^3.4.3"
+seaborn = "^0.11.2"
+
+[tool.poetry.dev-dependencies]
+poethepoet = "^0.10.0"
+pytest = "^6.2.5"
+black = "^21.9b0"
+isort = "^5.9.3"
+
+[tool.black]
+line-length = 120
+target-version = ['py38']
+exclude = '''
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | docs
+    | build
+    | dist
+    | \.virtual_documents
+  )/
+)
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 120
+skip_gitignore = true
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
