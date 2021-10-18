@@ -47,7 +47,6 @@ multi_line_output = 3
 line_length = 120
 skip_gitignore = true
 
-
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
@@ -56,3 +55,6 @@ build-backend = "poetry.core.masonry.api"
 _format_black = "black ."
 _format_isort = "isort ."
 format = ["_format_black", "_format_isort"]
+_check_black = "black . --check"
+_check_isort = "isort . --check"
+check = ["_check_black", "_check_isort"]

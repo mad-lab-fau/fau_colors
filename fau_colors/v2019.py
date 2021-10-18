@@ -1,8 +1,6 @@
 from collections import namedtuple
 
 import seaborn as sns
-from matplotlib import cm
-from matplotlib.colors import ListedColormap
 from typing_extensions import Literal
 
 from fau_colors._utils import custom_blend_colormap, get_register_func, get_unregister_func

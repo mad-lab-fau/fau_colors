@@ -1,6 +1,6 @@
 import matplotlib
 from matplotlib import cm
-from matplotlib.colors import ListedColormap, to_hex, to_rgb
+from matplotlib.colors import ListedColormap, to_rgb
 
 
 def custom_blend_colormap(colors, steps):
