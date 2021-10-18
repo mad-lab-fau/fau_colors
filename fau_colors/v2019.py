@@ -25,7 +25,7 @@ colors = _DepartmentColors(
 cmaps = _CmapsAll(
     departments=sns.color_palette(list(colors)),
     **{
-        k: sns.color_palette(custom_blend_colormap(["#FFFFFF", v], _LIGHTNESS_LEVELS), as_cmap=True)
+        k: sns.color_palette(custom_blend_colormap(["#FFFFFF", v], list(reversed(_LIGHTNESS_LEVELS))), as_cmap=True)
         for k, v in colors._asdict().items()
     },
 )
