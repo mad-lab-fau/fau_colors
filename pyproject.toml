@@ -12,6 +12,7 @@ license = "MIT"
 python = "^3.7"
 matplotlib = "^3.4.3"
 seaborn = "^0.11.2"
+typing-extensions = "^3.10.0"
 
 [tool.poetry.dev-dependencies]
 poethepoet = "^0.10.0"
