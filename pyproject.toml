@@ -58,3 +58,4 @@ format = ["_format_black", "_format_isort"]
 _check_black = "black . --check"
 _check_isort = "isort . --check"
 check = ["_check_black", "_check_isort"]
+update_docs = "python _docs/_generate_overview_image.py"
