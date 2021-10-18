@@ -2,7 +2,9 @@
 
 The official colors of the Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU) as matplotlib/seaborn colormaps.
 
-We support the old colors based on the [2019 CI-guidelines]() and the brand new [2021 Brand redesign]().
+We support the old colors based on the 
+[2019 CI-guidelines](https://www.intern.fau.de/files/2020/03/FAU-Design-Manual.pdf) and the brand new
+[2021 Brand redesign](https://www.intern.fau.de/files/2021/10/fau_styleguide-essentials.pdf).
 
 ## Installation
 
