@@ -13,9 +13,7 @@ NAMED_COLORS = ["fau", "tech", "phil", "med", "nat", "wiso"]
 
 _DepartmentColors = namedtuple("DepartmentColors", NAMED_COLORS)
 _DepartmentColorsAll = namedtuple("DepartmentColorsAll", [f"{a}{b}" for a, b in product(NAMED_COLORS, ("", "_dark"))])
-_CmapsAll = namedtuple(
-    "Cmaps", ["departments", "departments_dark", "departments_all", *_DepartmentColorsAll._fields]
-)
+_CmapsAll = namedtuple("Cmaps", ["departments", "departments_dark", "departments_all", *_DepartmentColorsAll._fields])
 
 _LIGHTNESS_LEVELS = [0.125, 0.25, 0.375, 0.625, 1]
 

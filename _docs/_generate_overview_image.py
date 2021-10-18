@@ -5,9 +5,8 @@ import seaborn as sns
 from matplotlib import cm
 from matplotlib.colors import ListedColormap
 
-import fau_colors.v2021 as ci21
 import fau_colors.v2019 as ci19
-
+import fau_colors.v2021 as ci21
 
 
 def show_cmaps(names, out="colormaps.png"):

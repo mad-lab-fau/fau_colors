@@ -1,6 +1,6 @@
 import matplotlib
 from matplotlib import cm
-from matplotlib.colors import to_hex, to_rgb, ListedColormap
+from matplotlib.colors import ListedColormap, to_hex, to_rgb
 
 
 def custom_blend_colormap(colors, steps):
@@ -24,4 +24,5 @@ def get_unregister_func(cmaps):
     def unregister():
         for k in cmaps._asdict():
             cm.unregister_cmap(name=k)
+
     return unregister
