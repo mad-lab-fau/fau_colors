@@ -9,7 +9,7 @@ We support the old colors based on the
 ## Installation
 
 ```
-pip install mad_colors
+pip install fau-colors
 ```
 
 ## Quick Guide
