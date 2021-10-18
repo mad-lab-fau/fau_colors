@@ -5,6 +5,7 @@ from pathlib import Path
 
 HERE = Path(__file__).parent
 
+
 def update_version_strings(file_path, new_version):
     # taken from:
     # https://stackoverflow.com/questions/57108712/replace-updated-version-strings-in-files-via-python
@@ -31,6 +32,7 @@ def update_version(version):
         .split(" ", 1)[1]
     )
     update_version_strings(HERE.joinpath("fau_colors/__init__.py"), new_version)
+
 
 def task_update_version():
     update_version(sys.argv[1])

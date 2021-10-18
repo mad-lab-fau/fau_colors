@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
@@ -5,8 +7,6 @@ from matplotlib import cm
 
 import fau_colors.v2019 as ci19
 import fau_colors.v2021 as ci21
-
-from pathlib import Path
 
 HERE = Path(__file__).parent
 
