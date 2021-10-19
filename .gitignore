@@ -1,5 +1,3 @@
-# local, user-specific poetry configurations
-poetry.toml
 
 # Created by https://www.toptal.com/developers/gitignore/api/jupyternotebooks,linux,macos,pycharm+all,python,windows
 # Edit at https://www.toptal.com/developers/gitignore?templates=jupyternotebooks,linux,macos,pycharm+all,python,windows
@@ -321,3 +319,6 @@ $RECYCLE.BIN/
 
 # We are a library and do not need a lock file
 poetry.lock
+
+# local, user-specific poetry configurations
+poetry.toml
