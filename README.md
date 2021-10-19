@@ -22,7 +22,7 @@ pip install fau-colors
 ```python
 import seaborn as sns
 
-from fau_colors.v2021 import register_cmaps
+from fau_colors import register_cmaps
 register_cmaps()
 
 sns.set_palette("tech")
