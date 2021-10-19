@@ -6,6 +6,9 @@ authors = [
     "Robert Richer <robert.richer@fau.de>",
     "Arne Küderle <arne.kuederle@fau.de>",
 ]
+readme = "README.md"
+homepage = "https://github.com/mad-lab-fau/fau_colors"
+repository = "https://github.com/mad-lab-fau/fau_colors"
 license = "MIT"
 
 [tool.poetry.dependencies]
