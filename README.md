@@ -1,5 +1,12 @@
 # FAU - Colors
 
+[![PyPI](https://img.shields.io/pypi/v/fau-colors)](https://pypi.org/project/fau-colors/)
+![GitHub](https://img.shields.io/github/license/mad-lab-fau/fau_colors)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/fau-colors)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/mad-lab-fau/fau_colors)
+
+
 The official colors of Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU) as 
 [matplotlib](https://matplotlib.org/) / [seaborn](https://seaborn.pydata.org/) colormaps.
 
