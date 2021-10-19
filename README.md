@@ -102,7 +102,7 @@ If you need more than 5 colors see below.
 >>> sns.set_palette(cmaps.fau_dark)
 ```
 
-### Modifying the color colormaps
+### Modifying the colormaps
 
 Sometimes five colors are not enough for a colormap.
 The easiest way to generate more colors is to use one of the FAU colors as base and then create custom sequential
