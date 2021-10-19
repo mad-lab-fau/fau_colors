@@ -58,8 +58,15 @@ The easiest way to use the provided color palettes is to register them as global
 This can be done by calling the `register_cmaps()` function from the respective submodule.
 All available cmaps can be seen in the images above.
 
+#### 2021 colors
 ```pycon
 >>> from fau_colors import register_cmaps  # v2021 colors
+>>> register_cmaps()
+```
+
+#### 2019 colors
+```pycon
+>>> from fau_colors.v2019 import register_cmaps
 >>> register_cmaps()
 ```
 
@@ -120,7 +127,7 @@ If you need more than 5 colors see below.
 >>> # Only get the names here
 >>> cmaps._fields
 ('faculties', 'fau', 'tech', 'phil', 'med', 'nat', 'wiso')
->>> cmaps.fau_dark
+>>> cmaps.fau
 [(0.0, 0.2196078431372549, 0.396078431372549), (0.37254901960784315, 0.5103421760861206, 0.6210688196847366), (0.6235294117647059, 0.7062053056516724, 0.772641291810842), (0.7490196078431373, 0.8041368704344483, 0.8484275278738946), (0.8745098039215686, 0.9020684352172241, 0.9242137639369473)]
 >>> import seaborn as sns
 >>> sns.set_palette(cmaps.fau)
