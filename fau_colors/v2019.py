@@ -5,14 +5,17 @@ from typing_extensions import Literal
 
 from fau_colors._utils import custom_blend_colormap, get_register_func, get_unregister_func
 
+__all__ = ["colors", "cmaps", "register_cmaps", "unregister_cmaps"]
+
+
 NAMED_COLORS = Literal["fau", "tech", "phil", "med", "nat", "wiso"]
 _LIGHTNESS_LEVELS = [0.125, 0.25, 0.375, 0.625, 1]
 
 
-_DepartmentColors = namedtuple("DepartmentColors", ["fau", "tech", "phil", "med", "nat", "wiso"])
-_CmapsAll = namedtuple("Pallets", ["departments", *_DepartmentColors._fields])
+_FacultyColors = namedtuple("FacultyColors", ["fau", "tech", "phil", "med", "nat", "wiso"])
+_CmapsAll = namedtuple("Pallets", ["faculties", *_FacultyColors._fields])
 
-colors = _DepartmentColors(
+colors = _FacultyColors(
     fau="#003865",
     tech="#98a4ae",
     phil="#c99313",
@@ -23,7 +26,7 @@ colors = _DepartmentColors(
 
 
 cmaps = _CmapsAll(
-    departments=sns.color_palette(list(colors)),
+    faculties=sns.color_palette(list(colors)),
     **{
         k: sns.color_palette(custom_blend_colormap(["#FFFFFF", v], list(reversed(_LIGHTNESS_LEVELS))), as_cmap=True)
         for k, v in colors._asdict().items()
