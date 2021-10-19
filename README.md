@@ -72,12 +72,23 @@ If you need colormaps from both CI-guides, use them individually, as shown below
 
 All primary faculty colors are stored in a `namedtuple` called `colors`.
 
+
+#### 2021 colors
 ```pycon
 >>> from fau_colors import colors  # v2021 colors
 >>> colors
 FacultyColors(fau='#002F6C', tech='#779FB5', phil='#FFB81C', med='#00A3E0', nat='#43B02A', wiso='#C8102E')
 >>> colors.fau
 '#002F6C'
+```
+
+#### 2019 colors
+```pycon
+>>> from fau_colors.v2019 import colors
+>>> colors
+FacultyColors(fau='#003865', tech='#98a4ae', phil='#c99313', med='#00b1eb', nat='#009b77', wiso='#8d1429')
+>>> colors.fau
+'##003865'
 ```
 
 For the 2021 color scheme also the variable `colors_dark` and `colors_all` are available. They contain the dark variant 
@@ -90,6 +101,7 @@ There are colormaps for the primary colors and colormaps with varying lightness 
 The latter colormaps contain 5 colors each with 12.5, 25, 37.5, 62.5, and 100% value of the base color.
 If you need more than 5 colors see below.
 
+#### 2021 colors
 ```pycon
 >>> from fau_colors import cmaps  # v2021 colors
 >>> # Only get the names here
@@ -101,6 +113,19 @@ If you need more than 5 colors see below.
 >>> sns.set_palette(cmaps.fau_dark)
 ```
 
+
+#### 2019 colors
+```pycon
+>>> from fau_colors.v2019 import cmaps
+>>> # Only get the names here
+>>> cmaps._fields
+('faculties', 'fau', 'tech', 'phil', 'med', 'nat', 'wiso')
+>>> cmaps.fau_dark
+[(0.0, 0.2196078431372549, 0.396078431372549), (0.37254901960784315, 0.5103421760861206, 0.6210688196847366), (0.6235294117647059, 0.7062053056516724, 0.772641291810842), (0.7490196078431373, 0.8041368704344483, 0.8484275278738946), (0.8745098039215686, 0.9020684352172241, 0.9242137639369473)]
+>>> import seaborn as sns
+>>> sns.set_palette(cmaps.fau)
+```
+
 ### Modifying the colormaps
 
 Sometimes five colors are not enough for a colormap.
@@ -109,9 +134,18 @@ palettes from it.
 This can be done using `sns.light_palette` or `sns.dark_palette`, as explained 
 [here](https://seaborn.pydata.org/tutorial/color_palettes.html#custom-sequential-palettes).
 
+#### 2021 colors
 ```pycon
 >>> from fau_colors import colors  # v2021 colors
 >>> import seaborn as sns
 >>> sns.light_palette(colors.med, n_colors=8)
 [(0.9370639121761148, 0.9445189791516921, 0.9520035391049294), (0.8047725363394869, 0.9014173378043252, 0.9416168802970363), (0.6688064000629526, 0.8571184286417537, 0.9309417031889239), (0.5365150242263246, 0.8140167872943868, 0.9205550443810308), (0.40054888794979027, 0.7697178781318151, 0.9098798672729183), (0.2682575121131623, 0.7266162367844482, 0.8994932084650251), (0.13229137583662798, 0.6823173276218767, 0.8888180313569127), (0.0, 0.6392156862745098, 0.8784313725490196)]
+```
+
+#### 2019 colors
+```pycon
+>>> from fau_colors.v2019 import colors
+>>> import seaborn as sns
+>>> sns.light_palette(colors.med, n_colors=8)
+[(0.9363137612705862, 0.94473936725293, 0.9520047198366567), (0.8041282890912094, 0.9093574773431737, 0.9477078597351495), (0.6682709982401831, 0.8729927571581465, 0.9432916424086003), (0.5360855260608062, 0.8376108672483904, 0.9389947823070931), (0.40022823520978, 0.8012461470633632, 0.9345785649805439), (0.2680427630304031, 0.765864257153607, 0.9302817048790367), (0.13218547217937693, 0.7294995369685797, 0.9258654875524875), (0.0, 0.6941176470588235, 0.9215686274509803)]c
 ```
