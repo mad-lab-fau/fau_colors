@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "fau_colors"
 version = "0.3.0"
-description = "The official colors of the FAU as matplotlib/seaborn colormaps"
+description = "The official colors of FAU as matplotlib/seaborn colormaps"
 authors = [
     "Robert Richer <robert.richer@fau.de>",
     "Arne Küderle <arne.kuederle@fau.de>",
