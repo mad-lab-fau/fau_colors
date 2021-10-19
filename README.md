@@ -5,8 +5,7 @@ The official colors of Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)
 
 We support the old colors based on the 
 [2019 CI-guidelines](https://www.intern.fau.de/files/2020/03/FAU-Design-Manual.pdf) and the brand new
-[2021 Brand redesign](https://www.intern.fau.de/files/2021/10/fau_styleguide-essentials.pdf) 
-(*Note*: These documents are only accessible within the FAU network!).
+[2021 Brand redesign](https://www.intern.fau.de/files/2021/10/fau_styleguide-essentials.pdf).
 
 ## Installation
 
