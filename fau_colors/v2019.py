@@ -13,7 +13,7 @@ _LIGHTNESS_LEVELS = [0.125, 0.25, 0.375, 0.625, 1]
 
 
 _FacultyColors = namedtuple("FacultyColors", ["fau", "tech", "phil", "med", "nat", "wiso"])
-_CmapsAll = namedtuple("Pallets", ["faculties", *_FacultyColors._fields])
+_CmapsAll = namedtuple("Cmaps", ["faculties", *_FacultyColors._fields])
 
 colors = _FacultyColors(
     fau="#003865",
