@@ -317,8 +317,5 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/jupyternotebooks,linux,macos,pycharm+all,python,windows
 
-# We are a library and do not need a lock file
-poetry.lock
-
 # local, user-specific poetry configurations
 poetry.toml
