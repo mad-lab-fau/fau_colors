@@ -105,8 +105,8 @@ FacultyColors(fau='#003865', tech='#98a4ae', phil='#c99313', med='#00b1eb', nat=
 '##003865'
 ```
 
-For the 2021 color scheme also the variable `colors_dark` and `colors_all` are available. They contain the dark variant 
-of each color, as well as light and dark colors combined, respectively.
+For the 2021 color scheme also the variable `colors_dark`, `colors_light`, and `colors_all` are available. They 
+contain the dark and light variants of each color, as well as regular, dark, and light colors combined, respectively.
 
 ### Manually getting the colormaps
 
@@ -120,7 +120,7 @@ If you need more than 5 colors see below.
 >>> from fau_colors import cmaps  # v2021 colors
 >>> # Only get the names here
 >>> cmaps._fields
-('faculties', 'faculties_dark', 'faculties_all', 'fau', 'fau_dark', 'tech', 'tech_dark', 'phil', 'phil_dark', 'med', 'med_dark', 'nat', 'nat_dark', 'wiso', 'wiso_dark')
+('faculties', 'faculties_dark', 'faculties_light', 'faculties_all', 'fau', 'fau_dark', 'fau_light', 'tech', 'tech_dark', 'tech_light', 'phil', 'phil_dark', 'phil_light', 'med', 'med_dark', 'med_light', 'nat', 'nat_dark', 'nat_light', 'wiso', 'wiso_dark', 'wiso_light')
 >>> cmaps.fau_dark
 [(0.01568627450980392, 0.11764705882352941, 0.25882352941176473), (0.3823913879277201, 0.4463667820069205, 0.5349480968858131), (0.629434832756632, 0.6678200692041523, 0.7209688581314879), (0.7529565551710881, 0.7785467128027682, 0.8139792387543252), (0.876478277585544, 0.889273356401384, 0.9069896193771626)]
 >>> import seaborn as sns

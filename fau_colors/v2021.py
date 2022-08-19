@@ -4,11 +4,7 @@ from itertools import product
 import seaborn as sns
 from typing_extensions import Literal
 
-from fau_colors._utils import (
-    custom_blend_colormap,
-    get_register_func,
-    get_unregister_func,
-)
+from fau_colors._utils import custom_blend_colormap, get_register_func, get_unregister_func
 
 __all__ = [
     "colors",
