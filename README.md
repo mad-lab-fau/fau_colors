@@ -8,7 +8,7 @@
 
 
 The official colors of Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU) as 
-[matplotlib](https://matplotlib.org/) / [seaborn](https://seaborn.pydata.org/) colormaps and GIMP colomaps
+[matplotlib](https://matplotlib.org/) / [seaborn](https://seaborn.pydata.org/) colormaps and GIMP colopalette
 
 We support the old colors based on the 
 2019 CI-guidelines <!-- formerly available on https://www.intern.fau.de/files/2020/03/FAU-Design-Manual.pdf --> and the brand new
@@ -16,7 +16,7 @@ We support the old colors based on the
 
 ## Download the colors
 
-If you just need the colors outside Python, you can download a GIMP colormap with all colors (see image below) from
+If you just need the colors outside Python, you can download a GIMP colorpalette with all colors (see image below) from
 [here](https://github.com/mad-lab-fau/fau_colors/tree/main/color_palettes).
 This file can be imported into GIMP or Inkscape.
 
