@@ -1,6 +1,6 @@
 from itertools import chain
 from pathlib import Path
-from typing import Sequence, Tuple, List
+from typing import List, Sequence, Tuple
 
 import matplotlib
 from matplotlib import cm

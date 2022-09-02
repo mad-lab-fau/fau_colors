@@ -1,8 +1,8 @@
 from pathlib import Path
 
 from fau_colors import export_as_gpl
-from fau_colors.v2021 import cmaps as colors_2021
 from fau_colors.v2019 import cmaps as colors_2019
+from fau_colors.v2021 import cmaps as colors_2021
 
 HERE = Path(__file__).parent
 
