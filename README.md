@@ -16,10 +16,12 @@ We support the old colors based on the
 
 ## Download the colors
 
-If you just need the colors outside Python, you can download a GIMP colorpalette with all colors (see image below) from
-[here](https://github.com/mad-lab-fau/fau_colors/tree/main/color_palettes).
-This file can be imported into GIMP or Inkscape.
+If you just need the colors outside Python, you can download a GIMP colorpalette with all colors (see image below):
 
+<a href="https://raw.githubusercontent.com/mad-lab-fau/fau_colors/main/color_palettes/fau_colors_2019.gpl" download>2019 colors</a>  
+<a href="https://raw.githubusercontent.com/mad-lab-fau/fau_colors/main/color_palettes/fau_colors_2021.gpl" download>2021 colors</a>
+
+These files can be imported into GIMP or Inkscape.
 If you need the colors in other formats, please open an issue with details about the required file format.
 
 ## Installation
