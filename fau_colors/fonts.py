@@ -1,6 +1,7 @@
 from pathlib import Path
 
 from matplotlib import font_manager
+from matplotlib import pyplot as plt
 
 
 def register_fausans_font():
@@ -28,11 +29,16 @@ def register_fausans_font():
     ]
     for path in possible_paths:
         if path.exists():
+            # check if font is already registered
+            if "FAUSans Office" in font_manager.fontManager.get_font_names():
+                plt.rcParams["font.family"] = "sans-serif"
+                plt.rcParams["font.sans-serif"] = "FAUSans Office"
+                return
             font_manager.fontManager.addfont(path)
             print(
                 "Successfully registered FAU Sans font. "
                 "You can now use it in matplotlib by adding the following lines to your code:\n\n"
-                'plt.rcParams["font.family"] = "sans-serif"'
+                'plt.rcParams["font.family"] = "sans-serif"\n'
                 'plt.rcParams["font.sans-serif"] = "FAUSans Office"'
             )
             return
