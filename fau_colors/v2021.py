@@ -87,7 +87,10 @@ cmaps_with_names = _CmapsAll(
         [f"fau-{f}-light" for f in colors_light._fields],
         sns.color_palette(list(colors_light), as_cmap=True),
     ),
-    faculties_all=([f"fau-{f.replace('_', '-')}" for f in colors_all._fields], sns.color_palette(list(colors_all), as_cmap=True)),
+    faculties_all=(
+        [f"fau-{f.replace('_', '-')}" for f in colors_all._fields],
+        sns.color_palette(list(colors_all), as_cmap=True),
+    ),
     **lightened_colors,
 )
 
