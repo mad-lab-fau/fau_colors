@@ -76,7 +76,7 @@ reversed_light_levels = _LIGHTNESS_LEVELS[::-1]
 lightness_name_postfix = [f"-{int(i*1000)}" if i != 1 else "" for i in reversed_light_levels]
 for name, color in colors_all._asdict().items():
     lightened_colors[name] = (
-        [f"fau-{name}{p}" for p in lightness_name_postfix],
+        [f"fau-{name.replace('_', '-')}{p}" for p in lightness_name_postfix],
         custom_blend_colormap(["#FFFFFF", color], reversed_light_levels),
     )
 
@@ -87,7 +87,7 @@ cmaps_with_names = _CmapsAll(
         [f"fau-{f}-light" for f in colors_light._fields],
         sns.color_palette(list(colors_light), as_cmap=True),
     ),
-    faculties_all=([f"fau-{f}" for f in colors_all._fields], sns.color_palette(list(colors_all), as_cmap=True)),
+    faculties_all=([f"fau-{f.replace('_', '-')}" for f in colors_all._fields], sns.color_palette(list(colors_all), as_cmap=True)),
     **lightened_colors,
 )
 
