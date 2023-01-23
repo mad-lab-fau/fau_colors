@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fau_colors"
-version = "1.4.3"
+version = "1.5.0"
 description = "The official colors of FAU as matplotlib/seaborn colormaps"
 authors = [
     "Robert Richer <robert.richer@fau.de>",
@@ -64,4 +64,3 @@ check = ["_check_black", "_check_isort"]
 update_docs = "python _docs/_generate_overview_image.py"
 update_palettes = "python color_palettes/_create_palettes.py"
 bump_version = { "script" = "_tasks:task_update_version()"}
-default = {sequence = ["format", "lint", "test"], help = "Run the default pipeline, consisting of formatting, linting, and testing."}
