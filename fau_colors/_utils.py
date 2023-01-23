@@ -54,7 +54,7 @@ def export_as_tex(
     HEADER = (
         f"% Tex color file defining the FAU colors.\n"
         "% To use, you need to include the `xcolor` package (\\usepackage{xcolor} in your preamble).\n"
-        f"% Then copy this file into your project and include it with `\\input{{{file_name}}}`."
+        f"% Then copy this file into your project and include it with `\\input{{{file_name}}}`.\n\n\n"
     )
 
     color_strings = []
