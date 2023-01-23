@@ -16,6 +16,7 @@ We support the old colors based on the
 
 ## Download the colors
 
+### Gimp/Inkscape
 If you just need the colors outside Python, you can download a GIMP colorpalette with all colors (see image below).
 Right click any of the links below and then select "Save Link as":
 
@@ -23,6 +24,16 @@ Right click any of the links below and then select "Save Link as":
 <a href="https://raw.githubusercontent.com/mad-lab-fau/fau_colors/main/color_palettes/fau_colors_2021.gpl" download>2021 colors</a>
 
 These files can be imported into GIMP or Inkscape.
+
+### Latex
+
+We also provide a LaTeX color file for the 2021 colors. You can download it here:
+
+<a href="https://raw.githubusercontent.com/mad-lab-fau/fau_colors/main/color_palettes/fau_colors_2021.tex" download>2021 colors</a>
+
+For this to work you need to include the xcolor package in your preamble (`\usepackage{xcolor}`) and then you can use 
+the colors by copying the file into your project and including it in your document (`\input{fau_colors_2021.tex}`).
+
 If you need the colors in other formats, please open an issue with details about the required file format.
 
 ## Installation

@@ -12,6 +12,7 @@ __all__ = [
     "colors_dark",
     "colors_light",
     "cmaps",
+    "cmaps_with_names",
     "register_cmaps",
     "unregister_cmaps",
 ]
@@ -69,20 +70,28 @@ colors_all: _FacultyColorsAll = _FacultyColorsAll(
     **{f"{k}_light": v for k, v in colors_light._asdict().items()},
 )
 
-cmaps = _CmapsAll(
-    faculties=sns.color_palette(list(colors), as_cmap=True),
-    faculties_dark=sns.color_palette(list(colors_dark), as_cmap=True),
-    faculties_light=sns.color_palette(list(colors_light), as_cmap=True),
-    faculties_all=sns.color_palette(list(colors_all), as_cmap=True),
-    **{
-        k: sns.color_palette(
-            custom_blend_colormap(["#FFFFFF", v], list(reversed(_LIGHTNESS_LEVELS))),
-            as_cmap=True,
-        )
-        for k, v in colors_all._asdict().items()
-    },
+
+lightened_colors = {}
+reversed_light_levels = _LIGHTNESS_LEVELS[::-1]
+lightness_name_postfix = [f"-{int(i*1000)}" if i != 1 else "" for i in reversed_light_levels]
+for name, color in colors_all._asdict().items():
+    lightened_colors[name] = (
+        [f"fau-{name}{p}" for p in lightness_name_postfix],
+        custom_blend_colormap(["#FFFFFF", color], reversed_light_levels),
+    )
+
+cmaps_with_names = _CmapsAll(
+    faculties=([f"fau-{f}" for f in colors._fields], sns.color_palette(list(colors), as_cmap=True)),
+    faculties_dark=([f"fau-{f}-dark" for f in colors_dark._fields], sns.color_palette(list(colors_dark), as_cmap=True)),
+    faculties_light=(
+        [f"fau-{f}-light" for f in colors_light._fields],
+        sns.color_palette(list(colors_light), as_cmap=True),
+    ),
+    faculties_all=([f"fau-{f}" for f in colors_all._fields], sns.color_palette(list(colors_all), as_cmap=True)),
+    **lightened_colors,
 )
 
+cmaps = _CmapsAll(**{name: cmap[1] for name, cmap in cmaps_with_names._asdict().items()})
 
 register_cmaps = get_register_func(cmaps)
 unregister_cmaps = get_unregister_func(cmaps)
