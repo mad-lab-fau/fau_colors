@@ -12,7 +12,7 @@ The official colors of Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)
 
 We support the old colors based on the 
 2019 CI-guidelines <!-- formerly available on https://www.intern.fau.de/files/2020/03/FAU-Design-Manual.pdf --> and the brand new
-[2021 Brand redesign](https://www.doc.zuv.fau.de//M/Styleguide/FAU_Styleguide.pdf).
+[2021 Brand redesign](https://www.intern.fau.de/kommunikation-marketing-und-corporate-identity/corporate-identity/).
 
 ## Download the colors
 
@@ -124,7 +124,7 @@ FacultyColors(fau='#002F6C', tech='#779FB5', phil='#FFB81C', med='#00A3E0', nat=
 >>> colors
 FacultyColors(fau='#003865', tech='#98a4ae', phil='#c99313', med='#00b1eb', nat='#009b77', wiso='#8d1429')
 >>> colors.fau
-'##003865'
+'#003865'
 ```
 
 For the 2021 color scheme also the variable `colors_dark`, `colors_light`, and `colors_all` are available. They 
