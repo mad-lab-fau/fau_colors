@@ -23,25 +23,31 @@ def register_fausans_font():
 
     """
     possible_paths = [
-        Path("/Library/Fonts/FAUSansOffice-Regular.ttf"),  # macOS
-        Path("/usr/share/fonts/truetype/fausans/FAUSansOffice-Regular.ttf"),  # Linux
-        Path("C:/Windows/Fonts/FAUSansOffice-Regular.ttf"),  # Windows
+        Path("/Library/Fonts"),  # macOS
+        Path("~/Library/Fonts"),  # macOS
+        Path("/usr/local/share/fonts"),  # Linux
+        Path("/usr/share/fonts"),  # Linux
+        Path("~/.fonts"),  # Linux
+        Path("C:/Windows/Fonts/"),  # Windows
     ]
     for path in possible_paths:
         if path.exists():
-            # check if font is already registered
-            if "FAUSans Office" in font_manager.fontManager.get_font_names():
-                plt.rcParams["font.family"] = "sans-serif"
-                plt.rcParams["font.sans-serif"] = "FAUSans Office"
-                return
-            font_manager.fontManager.addfont(path)
-            print(
-                "Successfully registered FAU Sans font. "
-                "You can now use it in matplotlib by adding the following lines to your code:\n\n"
-                'plt.rcParams["font.family"] = "sans-serif"\n'
-                'plt.rcParams["font.sans-serif"] = "FAUSans Office"'
-            )
-            return
+            font_paths = sorted(path.rglob("FAUSansOffice-*.ttf"))
+            for font_path in font_paths:
+                if font_path.is_file():
+                    # check if font is already registered
+                    if "FAUSans Office" in font_manager.fontManager.get_font_names():
+                        plt.rcParams["font.family"] = "sans-serif"
+                        plt.rcParams["font.sans-serif"] = "FAUSans Office"
+                        return
+                    font_manager.fontManager.addfont(font_path)
+                    print(
+                        "Successfully registered FAU Sans font. "
+                        "You can now use it in matplotlib by adding the following lines to your code:\n\n"
+                        'plt.rcParams["font.family"] = "sans-serif"\n'
+                        'plt.rcParams["font.sans-serif"] = "FAUSans Office"'
+                    )
+                    return
 
     raise FileNotFoundError(
         "Could not find 'FAUSansOffice-Regular.ttf' on your system. Please install it manually and try again."
