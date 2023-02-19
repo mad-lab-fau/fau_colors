@@ -24,10 +24,10 @@ def register_fausans_font():
     """
     possible_paths = [
         Path("/Library/Fonts"),  # macOS
-        Path("~/Library/Fonts"),  # macOS
+        Path.home().joinpath("Library/Fonts"),  # macOS
         Path("/usr/local/share/fonts"),  # Linux
         Path("/usr/share/fonts"),  # Linux
-        Path("~/.fonts"),  # Linux
+        Path.home().joinpath(".fonts"),  # Linux
         Path("C:/Windows/Fonts/"),  # Windows
     ]
     for path in possible_paths:
