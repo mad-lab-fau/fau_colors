@@ -30,25 +30,27 @@ def register_fausans_font():
         Path.home().joinpath(".fonts"),  # Linux
         Path("C:/Windows/Fonts/"),  # Windows
     ]
+
+    font_found = False
     for path in possible_paths:
         if path.exists():
             font_paths = sorted(path.rglob("FAUSansOffice-*.ttf"))
             for font_path in font_paths:
                 if font_path.is_file():
-                    # check if font is already registered
-                    if "FAUSans Office" in font_manager.fontManager.get_font_names():
-                        plt.rcParams["font.family"] = "sans-serif"
-                        plt.rcParams["font.sans-serif"] = "FAUSans Office"
-                        return
                     font_manager.fontManager.addfont(font_path)
-                    print(
-                        "Successfully registered FAU Sans font. "
-                        "You can now use it in matplotlib by adding the following lines to your code:\n\n"
-                        'plt.rcParams["font.family"] = "sans-serif"\n'
-                        'plt.rcParams["font.sans-serif"] = "FAUSans Office"'
-                    )
-                    return
+                    if not font_found and "FAUSans Office" not in font_manager.fontManager.get_font_names():
+                        print(
+                            "Successfully registered FAU Sans font. "
+                            "You can now use it in matplotlib by adding the following lines to your code:\n\n"
+                            'plt.rcParams["font.family"] = "sans-serif"\n'
+                            'plt.rcParams["font.sans-serif"] = "FAUSans Office"'
+                        )
+                    font_found = True
 
-    raise FileNotFoundError(
-        "Could not find 'FAUSansOffice-Regular.ttf' on your system. Please install it manually and try again."
-    )
+    if font_found and "FAUSans Office" in font_manager.fontManager.get_font_names():
+        plt.rcParams["font.family"] = "sans-serif"
+        plt.rcParams["font.sans-serif"] = "FAUSans Office"
+    else:
+        raise FileNotFoundError(
+            "Could not find 'FAUSans Office' font on your system. Please install it manually and try again."
+        )
