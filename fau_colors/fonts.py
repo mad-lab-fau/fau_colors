@@ -29,6 +29,7 @@ def register_fausans_font():
         Path("/usr/share/fonts"),  # Linux
         Path.home().joinpath(".fonts"),  # Linux
         Path("C:/Windows/Fonts/"),  # Windows
+        Path.home().joinpath("AppData/Local/Microsoft/Windows/Fonts"),  # Windows
     ]
 
     font_found = False
