@@ -56,6 +56,10 @@ register_cmaps()
 
 sns.set_palette("tech")
 ```
+Per default, seaborn only registers 6 colors per palette. If you want to use `"faculties_all"` color palette, specify the amount of colors when loading the color palette. 
+```python
+sns.set_palette(sns.color_palette('faculties_all', n_colors = 18))
+```
 
 #### 2019 colormaps
 
