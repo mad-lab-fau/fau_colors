@@ -3,7 +3,6 @@ from pathlib import Path
 from typing import List, Sequence, Tuple
 
 import matplotlib
-from matplotlib import cm
 from matplotlib.colors import ListedColormap, to_rgb
 
 
@@ -19,7 +18,7 @@ def custom_blend_colormap(colors, steps):
 def get_register_func(cmaps):
     def register():
         for k, v in cmaps._asdict().items():
-            cm.register_cmap(name=k, cmap=ListedColormap(v))
+            matplotlib.colormaps.register(name=k, cmap=ListedColormap(v))
 
     return register
 
@@ -27,7 +26,7 @@ def get_register_func(cmaps):
 def get_unregister_func(cmaps):
     def unregister():
         for k in cmaps._asdict():
-            cm.unregister_cmap(name=k)
+            matplotlib.colormaps.unregister(name=k)
 
     return unregister
 
