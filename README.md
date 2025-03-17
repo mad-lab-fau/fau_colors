@@ -19,7 +19,7 @@ If you just need the colors outside Python, you can download a GIMP colorpalette
 Right click any of the links below and then select "Save Link as":
 
 <a href="https://raw.githubusercontent.com/mad-lab-fau/fau_colors/main/color_palettes/fau_colors_2019.gpl" download>2019 colors</a>  
-<a href="https://raw.githubusercontent.com/mad-lab-fau/fau_colors/main/color_palettes/fau_colors_2021.gpl" download>2021 colors</a>
+<a href="https://raw.githubusercontent.com/mad-lab-fau/fau_colors/main/color_palettes/fau_colors_2021.gpl" download>2021 colors</a>  
 <a href="https://raw.githubusercontent.com/mad-lab-fau/fau_colors/main/color_palettes/fau_colors_2024.gpl" download>2024 colors</a>
 
 These files can be imported into GIMP or Inkscape.
@@ -28,7 +28,7 @@ These files can be imported into GIMP or Inkscape.
 
 We also provide a LaTeX color file for the 2021 and 2024 colors. You can download it here:
 
-<a href="https://raw.githubusercontent.com/mad-lab-fau/fau_colors/main/color_palettes/fau_colors_2021.tex" download>2021 colors</a>
+<a href="https://raw.githubusercontent.com/mad-lab-fau/fau_colors/main/color_palettes/fau_colors_2021.tex" download>2021 colors</a>  
 <a href="https://raw.githubusercontent.com/mad-lab-fau/fau_colors/main/color_palettes/fau_colors_2024.tex" download>2024 colors</a>
 
 For this to work you need to include the xcolor package in your preamble (`\usepackage{xcolor}`) and then you can use 
@@ -44,9 +44,9 @@ pip install fau-colors
 
 ## Quick Guide
 
-#### 2021 colormaps
+#### 2024 colormaps
 
-![2021 colors](_docs/cms_21.png)
+![2024 colors](_docs/cms_24.png)
 
 ```python
 import seaborn as sns
@@ -61,7 +61,20 @@ Per default, seaborn only registers 6 colors per palette. If you want to use `"f
 sns.set_palette(sns.color_palette('faculties_all', n_colors = 18))
 ```
 
-#### 2021 and 2019 colormaps
+#### 2021 colormaps
+
+![2021 colors](_docs/cms_21.png)
+
+```python
+import seaborn as sns
+
+from fau_colors.v2021 import register_cmaps
+register_cmaps()
+
+sns.set_palette("tech")
+```
+
+#### 2019 colormaps
 
 ![2019 colors](_docs/cms_19.png)
 
