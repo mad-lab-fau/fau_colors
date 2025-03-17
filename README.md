@@ -10,9 +10,7 @@
 The official colors of Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU) as 
 [matplotlib](https://matplotlib.org/) / [seaborn](https://seaborn.pydata.org/) colormaps and GIMP colopalette
 
-We support the old colors based on the 
-2019 CI-guidelines <!-- formerly available on https://www.intern.fau.de/files/2020/03/FAU-Design-Manual.pdf --> and the brand new
-[2021 Brand redesign](https://www.intern.fau.de/kommunikation-marketing-und-corporate-identity/corporate-identity/).
+We support the old colors based on the 2019 and 2021 CI-guidelines and the current [2024 version](https://www.doc.zuv.fau.de//M/Corporate-Design-Manual/FAU_Corporate_Design_Manual.pdf) 
 
 ## Download the colors
 
@@ -22,14 +20,16 @@ Right click any of the links below and then select "Save Link as":
 
 <a href="https://raw.githubusercontent.com/mad-lab-fau/fau_colors/main/color_palettes/fau_colors_2019.gpl" download>2019 colors</a>  
 <a href="https://raw.githubusercontent.com/mad-lab-fau/fau_colors/main/color_palettes/fau_colors_2021.gpl" download>2021 colors</a>
+<a href="https://raw.githubusercontent.com/mad-lab-fau/fau_colors/main/color_palettes/fau_colors_2024.gpl" download>2024 colors</a>
 
 These files can be imported into GIMP or Inkscape.
 
 ### Latex
 
-We also provide a LaTeX color file for the 2021 colors. You can download it here:
+We also provide a LaTeX color file for the 2021 and 2024 colors. You can download it here:
 
 <a href="https://raw.githubusercontent.com/mad-lab-fau/fau_colors/main/color_palettes/fau_colors_2021.tex" download>2021 colors</a>
+<a href="https://raw.githubusercontent.com/mad-lab-fau/fau_colors/main/color_palettes/fau_colors_2024.tex" download>2024 colors</a>
 
 For this to work you need to include the xcolor package in your preamble (`\usepackage{xcolor}`) and then you can use 
 the colors by copying the file into your project and including it in your document (`\input{fau_colors_2021.tex}`).
@@ -61,7 +61,7 @@ Per default, seaborn only registers 6 colors per palette. If you want to use `"f
 sns.set_palette(sns.color_palette('faculties_all', n_colors = 18))
 ```
 
-#### 2019 colormaps
+#### 2021 and 2019 colormaps
 
 ![2019 colors](_docs/cms_19.png)
 
@@ -76,11 +76,9 @@ sns.set_palette("tech")
 
 ## General Usage
 
-The 2019 and the 2021 colors are available in the separate submodules `fau_colors.v2019` and `fau_colors.v2021` that 
-contain equivalent functions.
+The  colors are available in the separate submodules `fau_colors.v2019`, `fau_colors.v2021`, and `fau_colors.v2024` that contain equivalent functions.
 
-**Note:** For convenience, the `v2021` colors can also be accessed from the top-level. In the following examples we
-will use this shorter notation.
+**Note:** For convenience, the `v2024` colors can also be accessed from the top-level. In the following examples we will use this shorter notation.
 
 The methods below show the usage with the new color scheme.
 For the old colors simply replace the module name.
@@ -91,9 +89,15 @@ The easiest way to use the provided color palettes is to register them as global
 This can be done by calling the `register_cmaps()` function from the respective submodule.
 All available cmaps can be seen in the images above.
 
+#### 2024 colors
+```pycon
+>>> from fau_colors import register_cmaps  # v4 colors
+>>> register_cmaps()
+```
+
 #### 2021 colors
 ```pycon
->>> from fau_colors import register_cmaps  # v2021 colors
+>>> from fau_colors.v2021 import register_cmaps
 >>> register_cmaps()
 ```
 
@@ -103,7 +107,7 @@ All available cmaps can be seen in the images above.
 >>> register_cmaps()
 ```
 
-**WARNING: The 2019 and 2021 cmaps have overlapping names! This means you can not register both at the same time.
+**WARNING: The cmaps have overlapping names! This means you can not register both at the same time.
 You need to call `unregister_cmaps` from the correct module first, before you can register the other colormaps.
 If you need colormaps from both CI-guides, use them individually, as shown below.**
 

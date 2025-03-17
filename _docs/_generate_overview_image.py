@@ -6,11 +6,12 @@ import numpy as np
 
 import fau_colors.v2019 as ci19
 import fau_colors.v2021 as ci21
+import fau_colors.v2024 as ci24
 
 HERE = Path(__file__).parent
 
 
-def show_cmaps(names, out="colormaps.png"):
+def show_cmaps(names, out: Path):
     """display all colormaps included in the names list. If names is None, all
     defined colormaps will be shown."""
     # base code from http://www.scipy.org/Cookbook/Matplotlib/Show_colormaps
@@ -35,3 +36,8 @@ ci19.unregister_cmaps()
 
 ci21.register_cmaps()
 show_cmaps(ci21.cmaps._fields, out=HERE / "cms_21.png")
+ci21.unregister_cmaps()
+
+ci24.register_cmaps()
+show_cmaps(ci24.cmaps._fields, out=HERE / "cms_24.png")
+ci24.unregister_cmaps()
