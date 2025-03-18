@@ -89,7 +89,7 @@ sns.set_palette("tech")
 
 ## General Usage
 
-The  colors are available in the separate submodules `fau_colors.v2019`, `fau_colors.v2021`, and `fau_colors.v2024` that contain equivalent functions.
+The colors are available in the separate submodules `fau_colors.v2019`, `fau_colors.v2021`, and `fau_colors.v2024` that contain equivalent functions.
 
 **Note:** For convenience, the `v2024` colors can also be accessed from the top-level. In the following examples we will use this shorter notation.
 
@@ -130,14 +130,30 @@ If you need colormaps from both CI-guides, use them individually, as shown below
 All primary faculty colors are stored in a `namedtuple` called `colors`.
 
 
+#### 2024 colors
+
+```pycon
+>>> from fau_colors import colors
+>>> colors
+FacultyColors(fau='#04316A', tech='#8C9FB1', phil='#FDB735', med='#18B4F1', nat='#7BB725', wiso='#C50F3C')
+>>> colors.fau
+'#04316A'
+```
+
+For the 2024 color scheme also the variable `colors_dark`, and `colors_all` are available. They 
+contain the dark variants of each color, as well as regular, and dark colors combined, respectively.
+
 #### 2021 colors
 ```pycon
->>> from fau_colors import colors  # v2021 colors
+>>> from fau_colors.v2021 import colors  # v2021 colors
 >>> colors
 FacultyColors(fau='#002F6C', tech='#779FB5', phil='#FFB81C', med='#00A3E0', nat='#43B02A', wiso='#C8102E')
 >>> colors.fau
 '#002F6C'
 ```
+
+For the 2021 color scheme also the variable `colors_dark`, `colors_light`, and `colors_all` are available. They 
+contain the dark and light variants of each color, as well as regular, dark, and light colors combined, respectively.
 
 #### 2019 colors
 ```pycon
@@ -148,8 +164,7 @@ FacultyColors(fau='#003865', tech='#98a4ae', phil='#c99313', med='#00b1eb', nat=
 '#003865'
 ```
 
-For the 2021 color scheme also the variable `colors_dark`, `colors_light`, and `colors_all` are available. They 
-contain the dark and light variants of each color, as well as regular, dark, and light colors combined, respectively.
+
 
 ### Manually getting the colormaps
 
