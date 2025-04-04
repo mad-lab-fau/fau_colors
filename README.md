@@ -10,9 +10,7 @@
 The official colors of Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU) as 
 [matplotlib](https://matplotlib.org/) / [seaborn](https://seaborn.pydata.org/) colormaps and GIMP colopalette
 
-We support the old colors based on the 
-2019 CI-guidelines <!-- formerly available on https://www.intern.fau.de/files/2020/03/FAU-Design-Manual.pdf --> and the brand new
-[2021 Brand redesign](https://www.intern.fau.de/kommunikation-marketing-und-corporate-identity/corporate-identity/).
+We support the old colors based on the 2019 and 2021 CI-guidelines and the current [2024 version](https://www.doc.zuv.fau.de//M/Corporate-Design-Manual/FAU_Corporate_Design_Manual.pdf) 
 
 ## Download the colors
 
@@ -21,15 +19,17 @@ If you just need the colors outside Python, you can download a GIMP colorpalette
 Right click any of the links below and then select "Save Link as":
 
 <a href="https://raw.githubusercontent.com/mad-lab-fau/fau_colors/main/color_palettes/fau_colors_2019.gpl" download>2019 colors</a>  
-<a href="https://raw.githubusercontent.com/mad-lab-fau/fau_colors/main/color_palettes/fau_colors_2021.gpl" download>2021 colors</a>
+<a href="https://raw.githubusercontent.com/mad-lab-fau/fau_colors/main/color_palettes/fau_colors_2021.gpl" download>2021 colors</a>  
+<a href="https://raw.githubusercontent.com/mad-lab-fau/fau_colors/main/color_palettes/fau_colors_2024.gpl" download>2024 colors</a>
 
 These files can be imported into GIMP or Inkscape.
 
 ### Latex
 
-We also provide a LaTeX color file for the 2021 colors. You can download it here:
+We also provide a LaTeX color file for the 2021 and 2024 colors. You can download it here:
 
-<a href="https://raw.githubusercontent.com/mad-lab-fau/fau_colors/main/color_palettes/fau_colors_2021.tex" download>2021 colors</a>
+<a href="https://raw.githubusercontent.com/mad-lab-fau/fau_colors/main/color_palettes/fau_colors_2021.tex" download>2021 colors</a>  
+<a href="https://raw.githubusercontent.com/mad-lab-fau/fau_colors/main/color_palettes/fau_colors_2024.tex" download>2024 colors</a>
 
 For this to work you need to include the xcolor package in your preamble (`\usepackage{xcolor}`) and then you can use 
 the colors by copying the file into your project and including it in your document (`\input{fau_colors_2021.tex}`).
@@ -44,9 +44,9 @@ pip install fau-colors
 
 ## Quick Guide
 
-#### 2021 colormaps
+#### 2024 colormaps
 
-![2021 colors](_docs/cms_21.png)
+![2024 colors](_docs/cms_24.png)
 
 ```python
 import seaborn as sns
@@ -59,6 +59,19 @@ sns.set_palette("tech")
 Per default, seaborn only registers 6 colors per palette. If you want to use `"faculties_all"` color palette, specify the amount of colors when loading the color palette. 
 ```python
 sns.set_palette(sns.color_palette('faculties_all', n_colors = 18))
+```
+
+#### 2021 colormaps
+
+![2021 colors](_docs/cms_21.png)
+
+```python
+import seaborn as sns
+
+from fau_colors.v2021 import register_cmaps
+register_cmaps()
+
+sns.set_palette("tech")
 ```
 
 #### 2019 colormaps
@@ -76,11 +89,9 @@ sns.set_palette("tech")
 
 ## General Usage
 
-The 2019 and the 2021 colors are available in the separate submodules `fau_colors.v2019` and `fau_colors.v2021` that 
-contain equivalent functions.
+The colors are available in the separate submodules `fau_colors.v2019`, `fau_colors.v2021`, and `fau_colors.v2024` that contain equivalent functions.
 
-**Note:** For convenience, the `v2021` colors can also be accessed from the top-level. In the following examples we
-will use this shorter notation.
+**Note:** For convenience, the `v2024` colors can also be accessed from the top-level. In the following examples we will use this shorter notation.
 
 The methods below show the usage with the new color scheme.
 For the old colors simply replace the module name.
@@ -91,9 +102,15 @@ The easiest way to use the provided color palettes is to register them as global
 This can be done by calling the `register_cmaps()` function from the respective submodule.
 All available cmaps can be seen in the images above.
 
+#### 2024 colors
+```pycon
+>>> from fau_colors import register_cmaps  # v4 colors
+>>> register_cmaps()
+```
+
 #### 2021 colors
 ```pycon
->>> from fau_colors import register_cmaps  # v2021 colors
+>>> from fau_colors.v2021 import register_cmaps
 >>> register_cmaps()
 ```
 
@@ -103,7 +120,7 @@ All available cmaps can be seen in the images above.
 >>> register_cmaps()
 ```
 
-**WARNING: The 2019 and 2021 cmaps have overlapping names! This means you can not register both at the same time.
+**WARNING: The cmaps have overlapping names! This means you can not register both at the same time.
 You need to call `unregister_cmaps` from the correct module first, before you can register the other colormaps.
 If you need colormaps from both CI-guides, use them individually, as shown below.**
 
@@ -113,14 +130,30 @@ If you need colormaps from both CI-guides, use them individually, as shown below
 All primary faculty colors are stored in a `namedtuple` called `colors`.
 
 
+#### 2024 colors
+
+```pycon
+>>> from fau_colors import colors
+>>> colors
+FacultyColors(fau='#04316A', tech='#8C9FB1', phil='#FDB735', med='#18B4F1', nat='#7BB725', wiso='#C50F3C')
+>>> colors.fau
+'#04316A'
+```
+
+For the 2024 color scheme also the variable `colors_dark`, and `colors_all` are available. They 
+contain the dark variants of each color, as well as regular, and dark colors combined, respectively.
+
 #### 2021 colors
 ```pycon
->>> from fau_colors import colors  # v2021 colors
+>>> from fau_colors.v2021 import colors  # v2021 colors
 >>> colors
 FacultyColors(fau='#002F6C', tech='#779FB5', phil='#FFB81C', med='#00A3E0', nat='#43B02A', wiso='#C8102E')
 >>> colors.fau
 '#002F6C'
 ```
+
+For the 2021 color scheme also the variable `colors_dark`, `colors_light`, and `colors_all` are available. They 
+contain the dark and light variants of each color, as well as regular, dark, and light colors combined, respectively.
 
 #### 2019 colors
 ```pycon
@@ -131,8 +164,7 @@ FacultyColors(fau='#003865', tech='#98a4ae', phil='#c99313', med='#00b1eb', nat=
 '#003865'
 ```
 
-For the 2021 color scheme also the variable `colors_dark`, `colors_light`, and `colors_all` are available. They 
-contain the dark and light variants of each color, as well as regular, dark, and light colors combined, respectively.
+
 
 ### Manually getting the colormaps
 
