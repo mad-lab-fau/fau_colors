@@ -31,7 +31,11 @@ def get_unregister_func(cmaps):
     return unregister
 
 
-def export_as_gpl(colors: Sequence[List[Tuple[float, float, float]]], file_name: str, folder_path: Path):
+def export_as_gpl(
+    colors: Sequence[List[Tuple[float, float, float]]],
+    file_name: str,
+    folder_path: Path,
+):
     assert file_name.endswith("gpl"), "`name` must end with '.gpl'"
     HEADER = f"GIMP Palette\nName: {file_name[:-4]}\n#\n"
 
@@ -47,7 +51,9 @@ def export_as_gpl(colors: Sequence[List[Tuple[float, float, float]]], file_name:
 
 
 def export_as_tex(
-    colors: Sequence[Tuple[List[str], List[Tuple[float, float, float]]]], file_name: str, folder_path: Path
+    colors: Sequence[Tuple[List[str], List[Tuple[float, float, float]]]],
+    file_name: str,
+    folder_path: Path,
 ):
     assert file_name.endswith("tex"), "`name` must end with '.tex'"
     HEADER = (

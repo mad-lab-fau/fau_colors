@@ -16,7 +16,6 @@ __all__ = [
     "unregister_cmaps",
 ]
 
-from collections import namedtuple
 
 NAMED_COLORS_T = Literal["fau", "tech", "phil", "med", "nat", "wiso"]
 NAMED_COLORS = ["fau", "tech", "phil", "med", "nat", "wiso"]
@@ -79,9 +78,18 @@ colors_with_light_levels = {
 }
 
 cmaps_with_names = _CmapsAll(
-    faculties=([f"fau-{f}" for f in colors._fields], sns.color_palette(list(colors), as_cmap=True)),
-    faculties_dark=([f"fau-{f}-dark" for f in colors_dark._fields], sns.color_palette(list(colors_dark), as_cmap=True)),
-    faculties_all=([f"fau-{f}" for f in colors_all._fields], sns.color_palette(list(colors_all), as_cmap=True)),
+    faculties=(
+        [f"fau-{f}" for f in colors._fields],
+        sns.color_palette(list(colors), as_cmap=True),
+    ),
+    faculties_dark=(
+        [f"fau-{f}-dark" for f in colors_dark._fields],
+        sns.color_palette(list(colors_dark), as_cmap=True),
+    ),
+    faculties_all=(
+        [f"fau-{f}" for f in colors_all._fields],
+        sns.color_palette(list(colors_all), as_cmap=True),
+    ),
     **{
         name.replace("-", "_"): (
             [f"fau-{name}{postfix}" for postfix in lightness_name_postfix],
@@ -91,7 +99,9 @@ cmaps_with_names = _CmapsAll(
     },
 )
 
-cmaps = _CmapsAll(**{name: cmap[1] for name, cmap in cmaps_with_names._asdict().items()})
+cmaps = _CmapsAll(
+    **{name: cmap[1] for name, cmap in cmaps_with_names._asdict().items()}
+)
 
 register_cmaps = get_register_func(cmaps)
 unregister_cmaps = get_unregister_func(cmaps)

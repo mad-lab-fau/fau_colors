@@ -3,7 +3,11 @@ from collections import namedtuple
 import seaborn as sns
 from typing_extensions import Literal
 
-from fau_colors._utils import custom_blend_colormap, get_register_func, get_unregister_func
+from fau_colors._utils import (
+    custom_blend_colormap,
+    get_register_func,
+    get_unregister_func,
+)
 
 __all__ = ["colors", "cmaps", "register_cmaps", "unregister_cmaps"]
 
@@ -12,7 +16,9 @@ NAMED_COLORS = Literal["fau", "tech", "phil", "med", "nat", "wiso"]
 _LIGHTNESS_LEVELS = [0.125, 0.25, 0.375, 0.625, 1]
 
 
-_FacultyColors = namedtuple("FacultyColors", ["fau", "tech", "phil", "med", "nat", "wiso"])
+_FacultyColors = namedtuple(
+    "FacultyColors", ["fau", "tech", "phil", "med", "nat", "wiso"]
+)
 _CmapsAll = namedtuple("Cmaps", ["faculties", *_FacultyColors._fields])
 
 colors = _FacultyColors(
@@ -28,7 +34,10 @@ colors = _FacultyColors(
 cmaps = _CmapsAll(
     faculties=sns.color_palette(list(colors)),
     **{
-        k: sns.color_palette(custom_blend_colormap(["#FFFFFF", v], list(reversed(_LIGHTNESS_LEVELS))), as_cmap=True)
+        k: sns.color_palette(
+            custom_blend_colormap(["#FFFFFF", v], list(reversed(_LIGHTNESS_LEVELS))),
+            as_cmap=True,
+        )
         for k, v in colors._asdict().items()
     },
 )

@@ -4,7 +4,11 @@ from itertools import product
 import seaborn as sns
 from typing_extensions import Literal
 
-from fau_colors._utils import custom_blend_colormap, get_register_func, get_unregister_func
+from fau_colors._utils import (
+    custom_blend_colormap,
+    get_register_func,
+    get_unregister_func,
+)
 
 __all__ = [
     "colors",
@@ -73,7 +77,9 @@ colors_all: _FacultyColorsAll = _FacultyColorsAll(
 
 lightened_colors = {}
 reversed_light_levels = _LIGHTNESS_LEVELS[::-1]
-lightness_name_postfix = [f"-{int(i*1000)}" if i != 1 else "" for i in reversed_light_levels]
+lightness_name_postfix = [
+    f"-{int(i * 1000)}" if i != 1 else "" for i in reversed_light_levels
+]
 for name, color in colors_all._asdict().items():
     lightened_colors[name] = (
         [f"fau-{name.replace('_', '-')}{p}" for p in lightness_name_postfix],
@@ -81,8 +87,14 @@ for name, color in colors_all._asdict().items():
     )
 
 cmaps_with_names = _CmapsAll(
-    faculties=([f"fau-{f}" for f in colors._fields], sns.color_palette(list(colors), as_cmap=True)),
-    faculties_dark=([f"fau-{f}-dark" for f in colors_dark._fields], sns.color_palette(list(colors_dark), as_cmap=True)),
+    faculties=(
+        [f"fau-{f}" for f in colors._fields],
+        sns.color_palette(list(colors), as_cmap=True),
+    ),
+    faculties_dark=(
+        [f"fau-{f}-dark" for f in colors_dark._fields],
+        sns.color_palette(list(colors_dark), as_cmap=True),
+    ),
     faculties_light=(
         [f"fau-{f}-light" for f in colors_light._fields],
         sns.color_palette(list(colors_light), as_cmap=True),
@@ -94,7 +106,9 @@ cmaps_with_names = _CmapsAll(
     **lightened_colors,
 )
 
-cmaps = _CmapsAll(**{name: cmap[1] for name, cmap in cmaps_with_names._asdict().items()})
+cmaps = _CmapsAll(
+    **{name: cmap[1] for name, cmap in cmaps_with_names._asdict().items()}
+)
 
 register_cmaps = get_register_func(cmaps)
 unregister_cmaps = get_unregister_func(cmaps)
