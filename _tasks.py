@@ -32,7 +32,9 @@ def update_version(version: Sequence[str]):
         # update the version
         subprocess.run(["uv", "version", *version], shell=False, check=True)
         new_version = (
-            subprocess.run(["uv", "version"], shell=False, check=True, capture_output=True)
+            subprocess.run(
+                ["uv", "version"], shell=False, check=True, capture_output=True
+            )
             .stdout.decode()
             .strip()
             .split(" ", 1)[1:][0]
