@@ -1,4 +1,4 @@
-__version__ = "1.9.0"
+__version__ = "1.10.0"
 
 from fau_colors._utils import export_as_gpl, export_as_tex
 from fau_colors.fonts import register_fausans_font
