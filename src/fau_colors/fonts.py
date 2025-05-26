@@ -4,7 +4,7 @@ from matplotlib import font_manager
 from matplotlib import pyplot as plt
 
 
-def register_fausans_font():
+def register_fausans_font() -> None:
     """Register the FAU Sans font.
 
     This function tries to register the FAU Sans font by scanning the common font directories.
@@ -39,11 +39,7 @@ def register_fausans_font():
             for font_path in font_paths:
                 if font_path.is_file():
                     font_manager.fontManager.addfont(font_path)
-                    if (
-                        not font_found
-                        and "FAUSans Office"
-                        not in font_manager.fontManager.get_font_names()
-                    ):
+                    if not font_found and "FAUSans Office" not in font_manager.fontManager.get_font_names():
                         print(
                             "Successfully registered FAU Sans font. "
                             "You can now use it in matplotlib by adding the following lines to your code:\n\n"

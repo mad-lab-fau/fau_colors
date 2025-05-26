@@ -11,9 +11,10 @@ import fau_colors.v2024 as ci24
 HERE = Path(__file__).parent
 
 
-def show_cmaps(names, out: Path):
-    """display all colormaps included in the names list. If names is None, all
-    defined colormaps will be shown."""
+def show_cmaps(names, out: Path) -> None:
+    """Display all colormaps included in the names list. If names is None, all
+    defined colormaps will be shown.
+    """
     # base code from http://www.scipy.org/Cookbook/Matplotlib/Show_colormaps
     matplotlib.rc("text", usetex=False)
     a = np.outer(np.arange(0, 1, 0.01), np.ones(10))  # pseudo image data

@@ -223,12 +223,11 @@ wheels = [
 
 [[package]]
 name = "fau-colors"
-version = "1.8.0"
+version = "1.9.0"
 source = { editable = "." }
 dependencies = [
     { name = "matplotlib" },
     { name = "seaborn" },
-    { name = "typing-extensions" },
 ]
 
 [package.dev-dependencies]
@@ -244,7 +243,6 @@ dev = [
 requires-dist = [
     { name = "matplotlib", specifier = ">=3.6.3" },
     { name = "seaborn", specifier = ">=0.11.2" },
-    { name = "typing-extensions", specifier = ">=3.7" },
 ]
 
 [package.metadata.requires-dev]

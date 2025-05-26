@@ -11,8 +11,7 @@ readme = "README.md"
 license = "MIT"
 dependencies = [
     "matplotlib>=3.6.3",
-    "seaborn>=0.11.2",
-    "typing-extensions>=3.7",
+    "seaborn>=0.11.2"
 ]
 
 [project.urls]

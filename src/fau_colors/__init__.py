@@ -13,14 +13,14 @@ from fau_colors.v2024 import (
 )
 
 __all__ = [
-    "export_as_gpl",
-    "export_as_tex",
-    "register_fausans_font",
     "cmaps",
     "cmaps_with_names",
     "colors",
     "colors_all",
     "colors_dark",
+    "export_as_gpl",
+    "export_as_tex",
     "register_cmaps",
+    "register_fausans_font",
     "unregister_cmaps",
 ]

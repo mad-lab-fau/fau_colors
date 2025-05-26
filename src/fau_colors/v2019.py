@@ -1,7 +1,7 @@
 from collections import namedtuple
+from typing import Literal
 
 import seaborn as sns
-from typing_extensions import Literal
 
 from fau_colors._utils import (
     custom_blend_colormap,
@@ -9,16 +9,14 @@ from fau_colors._utils import (
     get_unregister_func,
 )
 
-__all__ = ["colors", "cmaps", "register_cmaps", "unregister_cmaps"]
+__all__ = ["cmaps", "colors", "register_cmaps", "unregister_cmaps"]
 
 
 NAMED_COLORS = Literal["fau", "tech", "phil", "med", "nat", "wiso"]
 _LIGHTNESS_LEVELS = [0.125, 0.25, 0.375, 0.625, 1]
 
 
-_FacultyColors = namedtuple(
-    "FacultyColors", ["fau", "tech", "phil", "med", "nat", "wiso"]
-)
+_FacultyColors = namedtuple("FacultyColors", ["fau", "tech", "phil", "med", "nat", "wiso"])
 _CmapsAll = namedtuple("Cmaps", ["faculties", *_FacultyColors._fields])
 
 colors = _FacultyColors(
