@@ -25,7 +25,7 @@ _FacultyColorsAll = namedtuple(
     "FacultyColorsAll",
     [f"{a}{b}" for a, b in product(NAMED_COLORS, ("", "_dark", "_light"))],
 )
-print(_FacultyColorsAll._fields)
+
 _CmapsAll = namedtuple(
     "Cmaps",
     [
