@@ -1,6 +1,6 @@
 [project]
 name = "fau_colors"
-version = "1.10.1"
+version = "1.10.2"
 description = "The official colors of FAU as matplotlib/seaborn colormaps"
 authors = [
     { name = "Robert Richer", email = "robert.richer@fau.de" },
