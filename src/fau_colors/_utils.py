@@ -1,9 +1,14 @@
-from collections.abc import Callable, Sequence
+from __future__ import annotations
+
 from itertools import chain
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 import matplotlib
 from matplotlib.colors import ListedColormap, to_rgb
+
+if TYPE_CHECKING:
+    from collections.abc import Callable, Sequence
 
 
 def custom_blend_colormap(colors: Sequence[str], steps: int = 256) -> list[tuple[float, float, float]]:
@@ -32,12 +37,11 @@ def _is_same_colormap(name: str, expected_colors: Sequence[str | Sequence[float]
     if registered_colors is None or len(registered_colors) != len(expected_colors):
         return False
 
-    for registered, expected in zip(registered_colors, expected_colors, strict=False):
-        registered_rgb = to_rgb(registered)
-        expected_rgb = to_rgb(expected)
-        for channel_registered, channel_expected in zip(registered_rgb, expected_rgb, strict=False):
-            if abs(float(channel_registered) - float(channel_expected)) > 1e-12:
-                return False
+    for i in range(len(expected_colors)):
+        registered_rgb = to_rgb(registered_colors[i])
+        expected_rgb = to_rgb(expected_colors[i])
+        if any(abs(float(registered_rgb[j]) - float(expected_rgb[j])) > 1e-12 for j in range(3)):
+            return False
 
     return True
 
