@@ -28,3 +28,6 @@ jobs:
     - name: Linting
       run: |
         uv run poe ci_check
+    - name: Test suite
+      run: |
+        uv run pytest

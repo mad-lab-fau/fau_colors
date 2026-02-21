@@ -1,4 +1,4 @@
-from collections.abc import Sequence
+from collections.abc import Callable, Sequence
 from itertools import chain
 from pathlib import Path
 
@@ -15,18 +15,68 @@ def custom_blend_colormap(colors: Sequence[str], steps: int = 256) -> list[tuple
     return pal
 
 
-def get_register_func(cmaps: matplotlib.colors.Colormap) -> None:
+def _get_colormap_registry() -> matplotlib.cm.ColormapRegistry | None:
+    try:
+        return matplotlib.colormaps
+    except AttributeError:
+        return None
+
+
+def _is_same_colormap(name: str, expected_colors: Sequence[str | Sequence[float]]) -> bool:
+    registry = _get_colormap_registry()
+    if registry is None or name not in registry:
+        return False
+
+    registered_cmap = registry[name]
+    registered_colors = getattr(registered_cmap, "colors", None)
+    if registered_colors is None or len(registered_colors) != len(expected_colors):
+        return False
+
+    for registered, expected in zip(registered_colors, expected_colors, strict=False):
+        registered_rgb = to_rgb(registered)
+        expected_rgb = to_rgb(expected)
+        for channel_registered, channel_expected in zip(registered_rgb, expected_rgb, strict=False):
+            if abs(float(channel_registered) - float(channel_expected)) > 1e-12:
+                return False
+
+    return True
+
+
+def _register_colormap(name: str, cmap: ListedColormap) -> None:
+    registry = _get_colormap_registry()
+    if registry is not None:
+        registry.register(name=name, cmap=cmap)
+        return
+
+    matplotlib.cm.register_cmap(name=name, cmap=cmap)
+
+
+def _unregister_colormap(name: str) -> None:
+    registry = _get_colormap_registry()
+    if registry is not None:
+        registry.unregister(name=name)
+        return
+
+    matplotlib.cm.unregister_cmap(name=name)
+
+
+def get_register_func(cmaps: matplotlib.colors.Colormap) -> Callable[[], None]:
     def register() -> None:
         for k, v in cmaps._asdict().items():
-            matplotlib.colormaps.register(name=k, cmap=ListedColormap(v))
+            cmap = ListedColormap(v)
+
+            if _is_same_colormap(name=k, expected_colors=cmap.colors):
+                continue
+
+            _register_colormap(name=k, cmap=cmap)
 
     return register
 
 
-def get_unregister_func(cmaps: matplotlib.colors.Colormap) -> None:
+def get_unregister_func(cmaps: matplotlib.colors.Colormap) -> Callable[[], None]:
     def unregister() -> None:
         for k in cmaps._asdict():
-            matplotlib.colormaps.unregister(name=k)
+            _unregister_colormap(name=k)
 
     return unregister
 
